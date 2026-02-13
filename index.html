@@ -93,10 +93,16 @@ button:hover {
         I love you more every day ❤️
     </p>
 
-    <button onclick="showLove()">Click for Surprise 🎁</button>
+   <a href="./suprise.html">
+    <button>Click for Surprise 🎁</button>
+</a>
+
 </div>
 
 <script>
+    function goToSurprise() {
+    window.location.href = "surprise.html";
+}
 function showLove() {
     alert("I love you forever and always 💖");
 }
