@@ -7,216 +7,152 @@
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    text-align: center;
-    color: white;
-     margin: 0;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  text-align: center;
+  color: white;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
-/* Main Card */
 .card {
-    margin: 60px auto;
-    padding: 30px;
-     width: 90%;
-     max-width: 380px;
-    margin: 20px auto;
-    
-    background: rgba(255,255,255,0.15);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+  margin: 20px auto;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0,0,0,0.2);
 }
 
-h1 {
-    margin-top: 0;
-}
-@keyframes floatUp {
-    from { transform: translateY(0); opacity: 1; }
-    to { transform: translateY(-100vh); opacity: 0; }
-}
-
-/* Image Space */
 .love-img {
-    width: 220px;
-    height: 220px;
-    border-radius: 15px;
-    object-fit: cover;
-    border: 4px solid white;
-    margin: 15px 0;
-}
-.card img {
-  width: 100%;
+  width: 80%;
+  max-width: 220px;
   height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  border: 4px solid white;
+  margin: 15px 0;
 }
 
-/* Button */
+h1 { font-size: 2rem; margin-top:0;}
+h2 { font-size: 1.5rem;}
+p { font-size: 1rem; }
+
 button {
-    background: #ff4b6e;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 25px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+  background: #ff4b6e;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.goback-btn:hover {
-    transition: all 0.3 ease;
-    cursor: pointer;
-    
-    background: #ff1f4b;
-    transform: scale(1.1);
-}
-/* Card adjustments */
-.card {
-    margin: 60px auto;
-    padding: 30px;
-    width: 90%;           /* Use relative width */
-    max-width: 400px;     /* Max width for large screens */
-    background: rgba(255,255,255,0.15);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+button:hover {
+  background: #ff1f4b;
+  transform: scale(1.1);
 }
 
-/* Image adjustments */
-.love-img {
-    width: 80%;           /* Relative to card */
-    max-width: 220px;
-    height: auto;         /* Maintain aspect ratio */
-    border-radius: 15px;
-    object-fit: cover;
-    border: 4px solid white;
-    margin: 15px 0;
+.confetti {
+  position: fixed;
+  font-size: 20px;
+  animation: fall 1.5s linear forwards;
 }
 
-/* Typography */
-h1 {
-    font-size: 2rem;      /* Scales better on small screens */
+@keyframes fall {
+  to { transform: translateY(100vh) rotate(360deg); opacity: 0;}
 }
 
-h2 {
-    font-size: 1.5rem;
-}
-
-p {
-    font-size: 1rem;
-}
-
-/* Media Queries for tablets and smaller devices */
-@media (max-width: 768px) {
-    .card {
-        padding: 20px;
-    }
-    h1 {
-        font-size: 1.8rem;
-    }
-    h2 {
-        font-size: 1.3rem;
-    }
-    p {
-        font-size: 0.95rem;
-    }
-    button {
-        padding: 10px 18px;
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .card {
-        margin: 40px 10px;
-        padding: 15px;
-    }
-    h1 {
-        font-size: 1.5rem;
-    }
-    h2 {
-        font-size: 1.1rem;
-    }
-    p {
-        font-size: 0.9rem;
-    }
-    button {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-}
-
-/* Floating Hearts */
 .heart {
-    position: fixed;
-    bottom: -20px;
-    font-size: 24px;
-    animation: floatUp 6s linear infinite;
+  position: fixed;
+  bottom: -20px;
+  font-size: 24px;
+  animation: floatUp 6s linear infinite;
 }
-
 
 @keyframes floatUp {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-100vh);
-        opacity: 0;
-    }
+  from { transform: translateY(0); opacity: 1;}
+  to { transform: translateY(-100vh); opacity: 0;}
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem;}
+  h2 { font-size: 1.1rem;}
+  p { font-size: 0.9rem;}
+  button { padding: 8px 15px; font-size: 14px;}
 }
 </style>
 </head>
 
 <body>
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <div class="card">
-    <h1>Happy Valentine’s Day 💕</h1>
-    <h2>My Pookie</h2>
+  <h1>Happy Valentine’s Day 💕</h1>
+  <h2>My Pookie</h2>
+  <img src="./photo.jpg" alt="Her Photo" class="love-img">
+  <p id="typeText"></p>
 
-    <!-- Replace image.jpg with her photo -->
-     
-    <img src="./photo.jpg" alt="Her Photo" class="love-img">
-
-    <p>
-        You are the most beautiful part of my life.  
-        Every moment with you is special and I’m so lucky to have you.  
-        I love you more every day ❤️
-    </p>
-
-   <a href="./suprise.html">
-    <button>Click for Surprise 🎁</button>
+  <a href="./suprise.html">
+  <button onclick="confettiBurst()">Go to Surprise 🎁</button>
 </a>
+
 
 </div>
 
 <script>
-    function goToSurprise() {
-    window.location.href = "surprise.html";
-}
-function showLove() {
-    alert("I love you forever and always 💖");
-}
+// 1️⃣ Music autoplay on first click anywhere
+const bgMusic = document.getElementById("bgMusic");
+document.body.addEventListener("click", () => {
+  if (bgMusic.paused) bgMusic.play().catch(e => console.log(e));
+}, { once: true });
 
-/* Floating hearts generator */
+// 2️⃣ Floating hearts generator
 function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💗";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    document.body.appendChild(heart);
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 400);
 
-    setTimeout(() => heart.remove(), 6000);
+// 3️⃣ Confetti burst
+function confettiBurst() {
+  for (let i = 0; i < 30; i++) {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.innerHTML = "💖";
+    c.style.left = Math.random()*100 + "vw";
+    c.style.top = "-20px";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),1500);
+  }
 }
 
-setInterval(createHeart, 400);
+// 4️⃣ Typewriter text
+const msg = "You are my favorite person in every universe. Every moment with you fills my heart with joy, laughter, and endless love. From the tiniest smile to the warmest hug, you make my world brighter every single day. Happy Valentine's Day, my dearest Pookie ❤️ I love you more than words could ever express, today and always.";
+let i = 0;
+function typeWriter() {
+  if (i < msg.length) {
+    document.getElementById("typeText").innerHTML += msg.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
+  }
+}
+typeWriter();
 </script>
-
 </body>
 </html>
