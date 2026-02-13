@@ -1,51 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Surprise ❤️</title>
+<title>Happy Valentine ❤️</title>
 <style>
+/* Reset and body styling */
 body {
     margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: white;
+    text-align: center;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    color: white;
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
     overflow-x: hidden;
 }
-.box {
-    width: 92%;
-    max-width: 450px;
-    padding: 22px;
+
+/* Main container */
+.container {
+    width: 90%;
+    max-width: 900px;
+    padding: 25px;
     border-radius: 25px;
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(15px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-    box-sizing: border-box;
+    margin-top: 50px;
 }
-.card-image {
+
+/* Heading */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Image gallery grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.gallery img {
     width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    margin-bottom: 18px;
+    height:200px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     border: 3px solid rgba(255,255,255,0.3);
+    transition: transform 0.3s;
 }
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Romantic message */
+.message {
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Go back button */
 .goback-btn {
-    margin-top: 18px;
     background:#ff4b6e;
     border:none;
-    padding:10px 18px;
+    padding:10px 20px;
     border-radius:25px;
     color:white;
     font-size:15px;
     cursor:pointer;
     transition: 0.3s;
-    margin-right: 10px;
 }
+
 .c-btn {
     margin-top: 10px;
     background:#ff4b6e;
@@ -65,54 +97,59 @@ body {
 }
 .goback-btn:hover {
     transform: scale(1.05);
-   background:goldenrod;
-   cursor:pointer;
+    background:#ff2a55;
 }
+.imgs{
+ height: 400px;
+}
+
+/* Floating hearts */
 .heart {
     position: fixed;
     bottom: -20px;
     font-size: 22px;
     animation: floatUp 6s linear infinite;
 }
+
 @keyframes floatUp {
     from { transform: translateY(0); opacity: 1; }
     to { transform: translateY(-100vh); opacity: 0; }
 }
-.text{
-    font-size: 17px;
-    margin: 15px 0;
-    line-height: 1.5;
-}
-h1 { font-size: 1.6rem; margin-bottom: 12px; }
-h2 { font-size: 1.35rem; margin-top: 12px; }
 
-@media (max-width: 420px) {
-    h1 { font-size: 1.4rem; }
-    h2 { font-size: 1.15rem; }
-    .text { font-size: 0.95rem; }
+/* Responsive text */
+@media (max-width: 500px) {
+    h1 { font-size: 1.5rem; }
+    .message { font-size: 0.95rem; }
 }
 </style>
 </head>
-
 <body>
-<div class="box">
-    <img src="./photo1.jpg" alt="Couple Photo" class="card-image">
-    <h1>Surprise My Pookie 💕</h1>
-    
-    <p class="text" id="lyric">
-        <span >To the girl who turned my world upside down in the best way possible: Happy Valentine’s Day. 😊</span>
-        <span>I’m so lucky to do life with you. You are my forever Valentine.</span>
-        <span>Every day with you feels like a celebration,</span>
-        <span>but today I get to officially tell the world how obsessed I am with you.</span>
-        <span style="font-size: 24px; font-weight: bolder;">I Love You kbal Khuch❤️</span>
-    </p>
 
- <a href="./image.html">
-  <button  class="c-btn" onclick="confettiBurst()"> More 🎁</button>
+<div class="container">
+    <h1 id="lyrics">Happy Valentine, My Pookie 💕</h1>
+
+    <div class="gallery">
+        <img src="./photo1.jpg" alt="Photo 1">
+        <img src="./photo2.jpg" alt="Photo 2">
+        <img src="./photo3.jpg" alt="Photo 3">
+        <img class="imgs" src="./photo4.jpg" alt="Photo 4">
+        <img src="./photo5.jpg" alt="Photo 5">
+        <img src="./photo6.jpg" alt="Photo 6">
+    </div>
+
+  <div id="lyrics">
+    <p style="font-size: 25px; ">To my love, every day with you is magical.</p>
+    <p style="font-size: 25px;">Thank you for filling my life with laughter, love,</p>
+    <p style="font-size: 25px;">and unforgettable moments. ❤️</p>
+</div>
+
+     <a href="./index.html">
+  <button class="c-btn" onclick="confettiBurst()">Home 🌹✨</button>
 </a>
 </div>
 
 <script>
+// Floating hearts animation
 function createHeart() {
     const heart = document.createElement("div");
     heart.className = "heart";
@@ -123,12 +160,13 @@ function createHeart() {
     setTimeout(() => heart.remove(), 6000);
 }
 setInterval(createHeart, 400);
- 
-const spans = document.querySelectorAll("#lyric span");
-let index = 0; 
+
+
+const spans = document.querySelectorAll("#lyrics p"); // corrected selector
+let index = 0;
 
 function showNextLine() {
-    if(index < spans.length){
+    if (index < spans.length) {
         spans[index].style.opacity = 1;
         spans[index].style.transform = "translateY(0)";
         index++;
@@ -136,6 +174,7 @@ function showNextLine() {
     }
 }
 
+// Initialize all lines hidden
 spans.forEach(span => {
     span.style.display = "block";
     span.style.opacity = 0;
@@ -145,5 +184,6 @@ spans.forEach(span => {
 
 showNextLine();
 </script>
+
 </body>
 </html>
